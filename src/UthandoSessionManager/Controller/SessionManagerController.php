@@ -10,6 +10,17 @@ class SessionManagerController extends AbstractCrudController
     protected $serviceName = 'UthandoSessionManager\Service\SessionManager';
     protected $route = 'admin/session';
     
+    public function indexAction()
+    {
+        try {
+            parent::indexAction();
+        } catch (\Exception $e) {
+            $model = new ViewModel();
+            $model->setTemplate('uthando-session-manager/session-manager/not-implemented');
+            return $model;
+        }
+    }
+    
     public function viewAction()
     {
         $id = (string) $this->params()->fromRoute('id', 0);
