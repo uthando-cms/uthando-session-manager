@@ -5,7 +5,9 @@ return [
 		'userRoles' => [
 			'admin' => [
 				'privileges' => [
-					['controller' => 'UthandoSessionManager\Controller\SessionManager', 'action' => 'all'],
+					'allow' => [
+                        ['controller' => 'UthandoSessionManager\Controller\SessionManager', 'action' => 'all'],
+                    ],
 				],
 			],
 		],
