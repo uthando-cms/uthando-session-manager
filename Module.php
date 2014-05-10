@@ -41,17 +41,34 @@ class Module
     
     public function getServiceConfig()
     {
-        return include __DIR__ . '/config/service.config.php';
+        return [
+            'invokables' => [
+                'UthandoSessionManager\Mapper\Session'				=> 'UthandoSessionManager\Mapper\Session',
+                'UthandoSessionManager\Service\SessionManager'		=> 'UthandoSessionManager\Service\SessionManager',
+            ],
+            'factories' => [
+                'UthandoSessionManager\SessionManager'				=> 'UthandoSessionManager\Service\Factory\SessionManagerFactory',
+                'UthandoSessionManager\SessionSaveHandler'			=> 'UthandoSessionManager\Service\Factory\SessionSaveHandlerFactory',
+            ],
+        ];
     }
     
     public function getViewHelperConfig()
     {
-        return include __DIR__ . '/config/viewHelper.config.php';
+        return [
+            'invokables' => [
+                'DecodeSession' => 'UthandoSessionManager\View\DecodeSession',
+            ],
+        ];
     }
     
     public function getControllerConfig()
     {
-        return include __DIR__ . '/config/controller.config.php';
+        return [
+            'invokables' => [
+                'UthandoSessionManager\Controller\SessionManager' => 'UthandoSessionManager\Controller\SessionManagerController',
+            ],
+        ];
     }
     
     public function getAutoloaderConfig()
