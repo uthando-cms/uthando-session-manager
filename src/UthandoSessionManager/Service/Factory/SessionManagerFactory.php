@@ -19,7 +19,7 @@ class SessionManagerFactory implements FactoryInterface
         	$sessionConfig = null;
         	if (isset($session['config'])) {
         		$class = isset($session['config']['class'])  ? $session['config']['class'] : 'Zend\Session\Config\SessionConfig';
-        		$options = isset($session['config']['options']) ? $session['config']['options'] : array();
+        		$options = isset($session['config']['options']) ? $session['config']['options'] : [];
         		$sessionConfig = new $class();
         		$sessionConfig->setOptions($options);
         	}
@@ -43,7 +43,7 @@ class SessionManagerFactory implements FactoryInterface
         		foreach ($session['validators'] as $validator) {
         			
         			$validator = new $validator();
-        			$chain->attach('session.validate', array($validator, 'isValid'));
+        			$chain->attach('session.validate', [$validator, 'isValid']);
         		}
         	}
         } else {

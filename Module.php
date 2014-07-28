@@ -6,10 +6,13 @@ use Zend\Mvc\MvcEvent;
 use Zend\Session\Container;
 
 class Module
-{
+{   
     public function onBootstrap(MvcEvent $event)
     {
-        $this->startSession($event);
+        $app            = $event->getApplication();
+        $eventManager   = $app->getEventManager();
+        
+        $eventManager->attach(MvcEvent::EVENT_ROUTE, [$this, 'startSession']);
     }
     
     public function startSession(MvcEvent $event)
