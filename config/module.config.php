@@ -86,13 +86,17 @@ return [
         ],
     ],
     'navigation' => [
-    	'admin' => [
-    		'session' => [
-    			'label' => 'Session Manager',
-    			'route' => 'admin/session',
-    			'resource' => 'menu:admin',
-    		],
-    	],
+        'admin' => [
+            'modules' => [
+                'pages' => [
+                    'session' => [
+                        'label' => 'Session Manager',
+                        'route' => 'admin/session',
+                        'resource' => 'menu:admin',
+                    ],
+                ],
+            ],
+        ],
     ],
     'view_manager' => [
         'template_map' => include __DIR__  .'/../template_map.php',
