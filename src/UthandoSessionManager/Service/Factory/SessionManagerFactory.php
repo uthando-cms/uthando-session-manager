@@ -13,8 +13,8 @@ class SessionManagerFactory implements FactoryInterface
     {
         $config = $sm->get('config');
         
-        if (isset($config['session'])) {
-        	$session = $config['session'];
+        if (isset($config['uthando_session_manager'])) {
+        	$session = $config['uthando_session_manager'];
         
         	$sessionConfig = null;
         	if (isset($session['config'])) {

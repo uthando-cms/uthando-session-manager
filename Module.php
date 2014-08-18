@@ -39,6 +39,8 @@ class Module
     
     public function getConfig()
     {
+        defined('APPLICTION_PATH') or define('APPLICATION_PATH', realpath(dirname('./')));
+        
         return include __DIR__ . '/config/module.config.php';
     }
     

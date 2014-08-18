@@ -1,19 +1,38 @@
 <?php
 
 return [
-	'userAcl' => [
-		'userRoles' => [
-			'admin' => [
-				'privileges' => [
-					'allow' => [
-                        ['controller' => 'UthandoSessionManager\Controller\SessionManager', 'action' => 'all'],
+    'uthando_session_manager' => [
+        'config' => [
+            'class' => 'Zend\Session\Config\SessionConfig',
+            'options' => [
+                'name'          => 'uthando-cms',
+                'save_handler'  => 'files',
+                'save_path'     => APPLICATION_PATH . '/data/sessions',
+            ],
+        ],
+        'storage' => 'Zend\Session\Storage\SessionArrayStorage',
+        'validators' => [
+            'Zend\Session\Validator\RemoteAddr',
+            'Zend\Session\Validator\HttpUserAgent',
+        ],
+    ],
+    'uthando_user' => [
+        'acl' => [
+            'roles' => [
+                'admin' => [
+                    'privileges' => [
+                        'allow' => [
+                            'controllers' => [
+                                'UthandoSessionManager\Controller\SessionManager' => ['action' => 'all'],
+                            ],
+                        ],
                     ],
-				],
-			],
-		],
-		'userResources' => [
-			'UthandoSessionManager\Controller\SessionManager',
-		],
+                ],
+            ],
+            'resources' => [
+                'UthandoSessionManager\Controller\SessionManager',
+            ],
+        ],
 	],
     'router' => [
         'routes' => [
