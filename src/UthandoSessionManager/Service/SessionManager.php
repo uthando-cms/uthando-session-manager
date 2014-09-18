@@ -2,9 +2,9 @@
 
 namespace UthandoSessionManager\Service;
 
-use UthandoCommon\Service\AbstractService;
+use UthandoCommon\Service\AbstractMapperService;
 
-class SessionManager extends AbstractService
+class SessionManager extends AbstractMapperService
 {	
     protected $mapperClass = 'UthandoSessionManager\Mapper\Session';
     

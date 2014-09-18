@@ -43,37 +43,35 @@ class Module
         
         return include __DIR__ . '/config/module.config.php';
     }
+
+    public function getControllerConfig()
+    {
+        return include __DIR__ . '/config/controller.config.php';
+    }
+
+    public function getHydratorConfig()
+    {
+        return include __DIR__ . '/config/hydrator.config.php';
+    }
     
     public function getServiceConfig()
     {
-        return [
-            'invokables' => [
-                'UthandoSessionManager\Mapper\Session'				=> 'UthandoSessionManager\Mapper\Session',
-                'UthandoSessionManager\Service\SessionManager'		=> 'UthandoSessionManager\Service\SessionManager',
-            ],
-            'factories' => [
-                'UthandoSessionManager\SessionManager'				=> 'UthandoSessionManager\Service\Factory\SessionManagerFactory',
-                'UthandoSessionManager\SessionSaveHandler'			=> 'UthandoSessionManager\Service\Factory\SessionSaveHandlerFactory',
-            ],
-        ];
+        return include __DIR__ . '/config/service.config.php';
     }
     
     public function getViewHelperConfig()
     {
-        return [
-            'invokables' => [
-                'DecodeSession' => 'UthandoSessionManager\View\DecodeSession',
-            ],
-        ];
+        return include __DIR__ . '/config/viewHelper.config.php';
     }
-    
-    public function getControllerConfig()
+
+    public function getUthandoMapperConfig()
     {
-        return [
-            'invokables' => [
-                'UthandoSessionManager\Controller\SessionManager' => 'UthandoSessionManager\Controller\SessionManagerController',
-            ],
-        ];
+        return include __DIR__ . '/config/mapper.config.php';
+    }
+
+    public function getUthandoModelConfig()
+    {
+        return include __DIR__ . '/config/model.config.php';
     }
     
     public function getAutoloaderConfig()
