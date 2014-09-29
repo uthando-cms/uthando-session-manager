@@ -1,13 +1,10 @@
 <?php
 namespace UthandoSessionManager\Mapper;
 
-use UthandoCommon\Mapper\AbstractMapper;
+use UthandoCommon\Mapper\AbstractDbMapper;
 
-class Session extends AbstractMapper
+class Session extends AbstractDbMapper
 {
 	protected $table = 'session';
 	protected $primary = 'id';
-	protected $model = 'UthandoSessionManager\Model\Session';
-	protected $hydrator = 'UthandoSessionManager\Hydrator\Session';
-	
 }

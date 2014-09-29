@@ -41,7 +41,7 @@ class Module
     {
         defined('APPLICATION_PATH') or define('APPLICATION_PATH', realpath(dirname('./')));
         
-        return include __DIR__ . '/config/module.config.php';
+        return include __DIR__ . '/config/config.php';
     }
 
     public function getControllerConfig()
