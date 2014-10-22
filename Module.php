@@ -21,6 +21,7 @@ class Module
             $session = $event->getApplication()
                 ->getServiceManager()
                 ->get('UthandoSessionManager\SessionManager');
+
             $session->start();
              
             $container = new Container();
