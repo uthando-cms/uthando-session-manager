@@ -12,7 +12,7 @@ class Module
         $app            = $event->getApplication();
         $eventManager   = $app->getEventManager();
         
-        $eventManager->attach(MvcEvent::EVENT_ROUTE, [$this, 'startSession']);
+        $eventManager->attach(MvcEvent::EVENT_ROUTE, [$this, 'startSession'],10000);
     }
     
     public function startSession(MvcEvent $event)
