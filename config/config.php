@@ -7,7 +7,7 @@ return [
             'options' => [
                 'name'          => 'uthando-cms',
                 'save_handler'  => 'files',
-                'save_path'     => APPLICATION_PATH . '/data/sessions',
+                //'save_path'     => APPLICATION_PATH . '/data/sessions',
             ],
         ],
         'storage' => 'Zend\Session\Storage\SessionArrayStorage',

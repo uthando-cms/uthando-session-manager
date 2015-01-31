@@ -49,6 +49,11 @@ class Module
     {
         return include __DIR__ . '/config/controller.config.php';
     }
+    
+    public function getControllerPluginConfig()
+    {
+        return include __DIR__ . '/config/controllerPlugin.config.php';
+    }
 
     public function getHydratorConfig()
     {
