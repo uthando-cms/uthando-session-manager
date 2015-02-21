@@ -7,6 +7,7 @@ return [
             'options' => [
                 'name'          => 'uthando-cms',
                 'save_handler'  => 'files',
+                //'cache_limiter' => 'public',
                 //'save_path'     => APPLICATION_PATH . '/data/sessions',
             ],
         ],
