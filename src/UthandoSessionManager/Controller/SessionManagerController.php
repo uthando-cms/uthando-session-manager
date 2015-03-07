@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 class SessionManagerController extends AbstractCrudController
 {
     protected $controllerSearchOverrides = array('sort' => 'id');
-    protected $serviceName = 'UthandoSessionManager\Service\SessionManager';
+    protected $serviceName = 'UthandoSessionManager';
     protected $route = 'admin/session';
     
     public function indexAction()

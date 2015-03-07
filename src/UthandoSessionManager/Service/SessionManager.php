@@ -6,7 +6,7 @@ use UthandoCommon\Service\AbstractMapperService;
 
 class SessionManager extends AbstractMapperService
 {	
-    protected $mapperClass = 'UthandoSessionManager\Mapper\Session';
+    protected $serviceAlias = 'UthandoSessionManager';
     
     public function getById($id)
     {
