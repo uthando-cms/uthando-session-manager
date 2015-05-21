@@ -42,47 +42,7 @@ class Module
     {
         defined('APPLICATION_PATH') or define('APPLICATION_PATH', realpath(dirname('./')));
         
-        return include __DIR__ . '/config/config.php';
-    }
-
-    public function getControllerConfig()
-    {
-        return include __DIR__ . '/config/controller.config.php';
-    }
-    
-    public function getControllerPluginConfig()
-    {
-        return include __DIR__ . '/config/controllerPlugin.config.php';
-    }
-
-    public function getHydratorConfig()
-    {
-        return include __DIR__ . '/config/hydrator.config.php';
-    }
-    
-    public function getServiceConfig()
-    {
-        return include __DIR__ . '/config/service.config.php';
-    }
-    
-    public function getViewHelperConfig()
-    {
-        return include __DIR__ . '/config/viewHelper.config.php';
-    }
-
-    public function getUthandoMapperConfig()
-    {
-        return include __DIR__ . '/config/mapper.config.php';
-    }
-
-    public function getUthandoModelConfig()
-    {
-        return include __DIR__ . '/config/model.config.php';
-    }
-    
-    public function getUthandoServiceConfig()
-    {
-        return include __DIR__ . '/config/uthandoServices.config.php';
+        return include __DIR__ . '/config/module.config.php';
     }
     
     public function getAutoloaderConfig()
