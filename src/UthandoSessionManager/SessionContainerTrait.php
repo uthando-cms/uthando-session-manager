@@ -12,6 +12,11 @@ namespace UthandoSessionManager;
 
 use Zend\Session\Container;
 
+/**
+ * Class SessionContainerTrait
+ *
+ * @package UthandoSessionManager
+ */
 trait SessionContainerTrait
 {
     /**
@@ -53,7 +58,8 @@ trait SessionContainerTrait
     }
 
     /**
-     * @param unknown $ns
+     * @param $ns
+     * @return $this
      */
     public function setNs($ns)
     {
