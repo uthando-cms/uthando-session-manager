@@ -151,14 +151,10 @@ return [
     ],
     'navigation' => [
         'admin' => [
-            'modules' => [
-                'pages' => [
-                    'session' => [
-                        'label' => 'Session Manager',
-                        'route' => 'admin/session',
-                        'resource' => 'menu:admin',
-                    ],
-                ],
+            'session' => [
+                'label' => 'Session Manager',
+                'route' => 'admin/session',
+                'resource' => 'menu:admin',
             ],
         ],
     ],
