@@ -33,7 +33,7 @@ class Module
         } catch (Exception $e) {
             echo '<pre>';
             echo $e->getMessage();
-            echo '</pre';
+            echo '</pre>';
             exit();
         }
     }

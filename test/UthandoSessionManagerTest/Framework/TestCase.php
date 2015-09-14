@@ -1,6 +1,6 @@
 <?php
 
-namespace UthandoTwitterTest\Framework;
+namespace UthandoSessionManagerTest\Framework;
 
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
@@ -9,7 +9,7 @@ class TestCase extends AbstractHttpControllerTestCase
     protected function setUp()
     {
         $this->setApplicationConfig(
-            include __DIR__ . '/../../TestConfig.php.dist'
+            include __DIR__ . '/../../TestConfig.php'
         );
         parent::setUp();
     }

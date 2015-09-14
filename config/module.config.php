@@ -1,22 +1,6 @@
 <?php
 
 return [
-    'uthando_session_manager' => [
-        'config' => [
-            'class' => 'Zend\Session\Config\SessionConfig',
-            'options' => [
-                'name'          => 'uthando-cms',
-                'save_handler'  => 'files',
-                //'cache_limiter' => 'public',
-                //'save_path'     => APPLICATION_PATH . '/data/sessions',
-            ],
-        ],
-        'storage' => 'Zend\Session\Storage\SessionArrayStorage',
-        'validators' => [
-            'Zend\Session\Validator\RemoteAddr',
-            'Zend\Session\Validator\HttpUserAgent',
-        ],
-    ],
     'uthando_user' => [
         'acl' => [
             'roles' => [
