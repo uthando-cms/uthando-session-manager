@@ -1,26 +1,18 @@
 <?php
-/**
- * Uthando CMS (http://www.shaunfreeman.co.uk/)
- *
- * @package   UthandoSessionManagerTest\Framework
- * @author    Shaun Freeman <shaun@shaunfreeman.co.uk>
- * @copyright Copyright (c) 2014 Shaun Freeman. (http://www.shaunfreeman.co.uk)
- * @license   see LICENSE.txt
- */
 
 namespace UthandoSessionManagerTest\Framework;
 
-use UthandoSessionManagerTest\Bootstrap;
+use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 
-class TestCase extends \PHPUnit_Framework_TestCase
+class ControllerTestCase extends AbstractHttpControllerTestCase
 {
-    /**
-     * @var \Zend\ServiceManager\ServiceManager
-     */
-    protected $serviceManager;
+    protected $traceError = true;
 
-    public function setUp()
+    protected function setUp()
     {
-        $this->serviceManager = Bootstrap::getServiceManager();
+        $this->setApplicationConfig(
+            include __DIR__ . '/../../TestConfig.php'
+        );
+        parent::setUp();
     }
 }

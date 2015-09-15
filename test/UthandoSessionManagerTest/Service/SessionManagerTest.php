@@ -11,10 +11,23 @@
 namespace UthandoSessionManagerTest\Service;
 
 use UthandoSessionManager\Model\Session;
+use UthandoSessionManagerTest\Bootstrap;
 use UthandoSessionManagerTest\Framework\TestCase;
 
 class SessionManagerTest extends TestCase
 {
+    /**
+     * @var \Zend\ServiceManager\ServiceManager
+     */
+    protected $serviceManager;
+
+    protected $traceError = true;
+
+    public function setUp()
+    {
+        $this->serviceManager = Bootstrap::getServiceManager();
+    }
+
     public function testGetById()
     {
         $model = new Session();

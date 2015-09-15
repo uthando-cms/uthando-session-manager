@@ -10,10 +10,20 @@
 
 namespace UthandoSessionManagerTest\Service\Factory;
 
-use UthandoSessionManagerTest\Framework\TestCase;
+use UthandoSessionManagerTest\Bootstrap;
 
-class SessionManagerFactoryTest extends TestCase
+class SessionManagerFactoryTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \Zend\ServiceManager\ServiceManager
+     */
+    protected $serviceManager;
+
+    public function setUp()
+    {
+        $this->serviceManager = Bootstrap::getServiceManager();
+    }
+
     public function testCanGetSessionManagerFromService()
     {
         $sessionManager = $this->serviceManager

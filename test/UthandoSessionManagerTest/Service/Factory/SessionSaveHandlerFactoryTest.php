@@ -14,7 +14,7 @@ use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\ArrayUtils;
 
-class SessionSaveHandlerFactoryTest extends \PHPUnit_Framework_TestCase
+class SessionMangerCustomConfigTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \Zend\ServiceManager\ServiceManager
@@ -38,5 +38,6 @@ class SessionSaveHandlerFactoryTest extends \PHPUnit_Framework_TestCase
             ->get('UthandoSessionManager\SessionManager');
 
         $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);
+
     }
 }
