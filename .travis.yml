@@ -15,7 +15,7 @@ before_script:
   - cd module/UthandoSessionManager/test
 
 script:
-  - phpunit
+  - phpunit -v --debug
 
 after_script:
   - cd ../../../
