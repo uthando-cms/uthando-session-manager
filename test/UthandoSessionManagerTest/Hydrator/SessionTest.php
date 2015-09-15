@@ -21,7 +21,7 @@ class SessionTest extends TestCase
         parent::setUp();
     }
 
-    /*public function testExtract()
+    public function testExtract()
     {
         $array = [
             'id'		=> '2b73fftuqqa84lha6jt4pcl097',
@@ -34,5 +34,5 @@ class SessionTest extends TestCase
 
         $model = $hydrator->hydrate($array, new SessionModel());
         $this->assertSame($array, $hydrator->extract($model));
-    }*/
+    }
 }
