@@ -22,6 +22,7 @@ class SessionMangerCustomConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        session_destroy();
         // use ModuleManager to load this module and it's dependencies
         $config = include __DIR__ . '/../../../config/TestOverridesConfig.php';
 

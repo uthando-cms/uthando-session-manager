@@ -1,9 +1,8 @@
 <?php
 namespace UthandoSessionManager;
 
-use Exception;
+use UthandoSessionManager\Event\RouteListener;
 use Zend\Mvc\MvcEvent;
-use Zend\Session\Container;
 
 class Module
 {   
@@ -12,30 +11,7 @@ class Module
         $app            = $event->getApplication();
         $eventManager   = $app->getEventManager();
         
-        $eventManager->attach(MvcEvent::EVENT_ROUTE, [$this, 'startSession'],10000);
-    }
-    
-    public function startSession(MvcEvent $event)
-    {
-        try {
-            $session = $event->getApplication()
-                ->getServiceManager()
-                ->get('UthandoSessionManager\SessionManager');
-
-            $session->start();
-             
-            $container = new Container();
-    
-            if (!isset($container->init)) {
-                $session->regenerateId(true);
-                $container->init = 1;
-            }
-        } catch (Exception $e) {
-            echo '<pre>';
-            echo $e->getMessage();
-            echo '</pre>';
-            exit();
-        }
+        $eventManager->attachAggregate(new RouteListener());
     }
     
     public function getConfig()

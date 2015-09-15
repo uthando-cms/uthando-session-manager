@@ -15,6 +15,9 @@ return [
             './devmodules',
             './vendor',
         ],
+        'config_glob_paths' => [
+            __DIR__ . '/autoload/uthando-theme-manager.local.php',
+        ],
     ],
     'service_manager' => [
         'invokables' => [

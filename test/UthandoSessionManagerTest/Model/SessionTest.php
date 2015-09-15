@@ -11,7 +11,6 @@
 namespace UthandoSessionManagerTest\Model;
 
 use UthandoSessionManager\Model\Session as SessionModel;
-use UthandoSessionManagerTest\Bootstrap;
 
 class SessionTest extends \PHPUnit_Framework_TestCase
 {
@@ -20,14 +19,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
      */
     protected $model;
 
-    /**
-     * @var \Zend\ServiceManager\ServiceManager
-     */
-    protected $serviceManager;
-
     public function setUp()
     {
-        $this->serviceManager = Bootstrap::getServiceManager();
         $this->model = new SessionModel();
     }
 
