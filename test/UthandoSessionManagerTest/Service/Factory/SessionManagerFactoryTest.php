@@ -26,9 +26,9 @@ class SessionManagerFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCanGetSessionManagerFromService()
     {
-        /*$sessionManager = $this->serviceManager
+        $sessionManager = $this->serviceManager
             ->get('UthandoSessionManager\SessionManager');
 
-        $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);*/
+        $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);
     }
 }
