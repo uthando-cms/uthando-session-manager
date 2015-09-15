@@ -15,8 +15,9 @@ before_script:
   - cd module/UthandoSessionManager/test
 
 script:
-  - phpunit
+  - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - cd ../../../
-  - CODECLIMATE_REPO_TOKEN=b34fe52fb54aba38ee0e775de4c85d6ab6dcccccc5c1dc77caf4fc444a064a36 php vendor/bin/test-reporter --coverage-report=build/logs/clover-UthandoSessionManager.xml
+  - php vendor/bin/test-reporter --stdout > codeclimate.json
+  - "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
