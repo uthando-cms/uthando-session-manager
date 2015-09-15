@@ -15,7 +15,7 @@ use UthandoSessionManagerTest\Framework\TestCase;
 
 class SessionManagerTest extends TestCase
 {
-    /*public function testGetById()
+    public function testGetById()
     {
         $model = new Session();
         $model->setId('2b73fftuqqa84lha6jt4pcl097')
@@ -48,5 +48,5 @@ class SessionManagerTest extends TestCase
             ->get('UthandoSessionManager');
 
         $this->assertSame($model, $service->getById('2b73fftuqqa84lha6jt4pcl097'));
-    }*/
+    }
 }

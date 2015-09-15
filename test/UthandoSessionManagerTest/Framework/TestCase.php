@@ -19,8 +19,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     protected $serviceManager;
 
-    protected $traceError = true;
-
     public function setUp()
     {
         $this->serviceManager = Bootstrap::getServiceManager();
