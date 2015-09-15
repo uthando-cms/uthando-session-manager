@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2015 Shaun Freeman. (http://www.shaunfreeman.co.uk)
  * @license   see LICENSE.txt
  */
+
 namespace UthandoSessionManager;
 
 use Zend\Session\Container;

@@ -1,9 +1,24 @@
 <?php
+/**
+ * Uthando CMS (http://www.shaunfreeman.co.uk/)
+ *
+ * @package   UthandoSessionManager\Controller
+ * @author    Shaun Freeman <shaun@shaunfreeman.co.uk>
+ * @link      https://github.com/uthando-cms for the canonical source repository
+ * @copyright Copyright (c) 2015 Shaun Freeman. (http://www.shaunfreeman.co.uk)
+ * @license   see LICENSE.txt
+ */
+
 namespace UthandoSessionManager\Controller;
 
 use UthandoCommon\Controller\AbstractCrudController;
 use Zend\View\Model\ViewModel;
 
+/**
+ * Class SessionManagerController
+ *
+ * @package UthandoSessionManager\Controller
+ */
 class SessionManagerController extends AbstractCrudController
 {
     protected $controllerSearchOverrides = array('sort' => 'id');
