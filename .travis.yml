@@ -6,7 +6,7 @@ php:
 
 addons:
     code_climate:
-        repo_token: ddc5dce62d1d53543ff37c8ac4dea167f8e05b8068d6014eb55590f94b93286b
+        repo_token: b34fe52fb54aba38ee0e775de4c85d6ab6dcccccc5c1dc77caf4fc444a064a36
 
 before_script:
   - cd ..
