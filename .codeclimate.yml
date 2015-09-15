@@ -3,4 +3,3 @@ languages:
   PHP: true
 exclude_paths:
   - test/*
-  - data/*

@@ -20,5 +20,6 @@ class SessionManagerFactoryTest extends TestCase
             ->get('UthandoSessionManager\SessionManager');
 
         $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);
+
     }
 }

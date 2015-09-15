@@ -43,7 +43,7 @@ trait SessionContainerTrait
      */
     public function getSessionContainer()
     {
-        if (! $this->sessionContainer instanceof Container) {
+        if (!$this->sessionContainer instanceof Container) {
             $this->setSessionContainer(new Container($this->getNs()));
         }
     

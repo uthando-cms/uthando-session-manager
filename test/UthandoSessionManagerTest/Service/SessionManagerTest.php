@@ -17,6 +17,7 @@ class SessionManagerTest extends TestCase
 {
     public function testGetById()
     {
+
         $model = new Session();
         $model->setId('2b73fftuqqa84lha6jt4pcl097')
             ->setName('uthando-cms')

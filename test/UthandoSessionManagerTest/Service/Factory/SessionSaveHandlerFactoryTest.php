@@ -30,13 +30,13 @@ class SessionMangerCustomConfigTest extends \PHPUnit_Framework_TestCase
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
         $this->serviceManager = $serviceManager;
+
     }
 
     public function testCanSetSessionFromLocalOverRides()
     {
         $sessionManager = $this->serviceManager
             ->get('UthandoSessionManager\SessionManager');
-
         $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);
     }
 }

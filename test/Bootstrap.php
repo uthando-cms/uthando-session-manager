@@ -7,6 +7,7 @@ use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 
 ob_start();
+ini_set('session.auto_start', 0);
 error_reporting(E_ALL | E_STRICT);
 chdir(__DIR__);
 
