@@ -6,7 +6,7 @@
  * @author    Shaun Freeman <shaun@shaunfreeman.co.uk>
  * @link      https://github.com/uthando-cms for the canonical source repository
  * @copyright Copyright (c) 2015 Shaun Freeman. (http://www.shaunfreeman.co.uk)
- * @license   see LICENSE.txt
+ * @license   see LICENSE
  */
 
 namespace UthandoSessionManager;
@@ -24,20 +24,12 @@ trait SessionContainerTrait
      * @var Container
      */
     protected $sessionContainer;
-    
+
     /**
      * @var string
      */
     protected $ns = __CLASS__;
-    
-    /**
-     * @param Container $ns
-     */
-    public function setSessionContainer(Container $ns)
-    {
-        $this->sessionContainer = $ns;
-    }
-    
+
     /**
      * @return Container
      */
@@ -46,10 +38,18 @@ trait SessionContainerTrait
         if (!$this->sessionContainer instanceof Container) {
             $this->setSessionContainer(new Container($this->getNs()));
         }
-    
+
         return $this->sessionContainer;
     }
-    
+
+    /**
+     * @param Container $ns
+     */
+    public function setSessionContainer(Container $ns)
+    {
+        $this->sessionContainer = $ns;
+    }
+
     /**
      * @return the $ns
      */

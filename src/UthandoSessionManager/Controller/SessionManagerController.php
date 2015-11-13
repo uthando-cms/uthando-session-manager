@@ -6,7 +6,7 @@
  * @author    Shaun Freeman <shaun@shaunfreeman.co.uk>
  * @link      https://github.com/uthando-cms for the canonical source repository
  * @copyright Copyright (c) 2015 Shaun Freeman. (http://www.shaunfreeman.co.uk)
- * @license   see LICENSE.txt
+ * @license   see LICENSE
  */
 
 namespace UthandoSessionManager\Controller;
@@ -24,7 +24,7 @@ class SessionManagerController extends AbstractCrudController
     protected $controllerSearchOverrides = array('sort' => 'id');
     protected $serviceName = 'UthandoSessionManager';
     protected $route = 'admin/session';
-    
+
     public function indexAction()
     {
         try {
@@ -35,24 +35,24 @@ class SessionManagerController extends AbstractCrudController
             return $model;
         }
     }
-    
+
     public function viewAction()
     {
-        $id = (string) $this->params()->fromRoute('id', 0);
-    
+        $id = (string)$this->params()->fromRoute('id', 0);
+
         $viewModel = new ViewModel(array(
             'session' => $this->getService()->getById($id)
         ));
-    
+
         $viewModel->setTerminal(true);
         return $viewModel;
     }
-    
+
     public function addAction()
     {
         return $this->redirect()->toRoute($this->getRoute());
     }
-    
+
     public function editAction()
     {
         return $this->redirect()->toRoute($this->getRoute());
