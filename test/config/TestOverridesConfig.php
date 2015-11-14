@@ -2,8 +2,8 @@
 return [
     'modules' => [
         'Application',
-        'UthandoSessionManager',
         'UthandoCommon',
+        'UthandoSessionManager',
     ],
     'module_listener_options' => [
         'module_paths' => [

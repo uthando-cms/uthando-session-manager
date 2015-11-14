@@ -2,9 +2,9 @@
 return [
     'modules' => [
         'Application',
+        'UthandoCommon',
         'UthandoAdmin',
         'UthandoSessionManager',
-        'UthandoCommon',
         'UthandoThemeManager',
         'UthandoNavigation',
         'UthandoUser',
