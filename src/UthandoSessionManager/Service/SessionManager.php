@@ -20,7 +20,12 @@ use UthandoCommon\Service\AbstractMapperService;
  */
 class SessionManager extends AbstractMapperService
 {
-    protected $serviceAlias = 'UthandoSessionManager';
+    protected $serviceAlias = 'UthandoSessionManagerSession';
+
+    /**
+     * @var bool
+     */
+    protected $useCache = false;
 
     public function getById($id, $col = null)
     {

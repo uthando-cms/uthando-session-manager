@@ -29,12 +29,12 @@ return [
     ],
     'uthando_models' => [
         'invokables' => [
-            'UthandoSessionManagerSession' => 'UthandoSessionManager\Mapper\Session',
+            'UthandoSessionManagerSession' => 'UthandoSessionManager\Model\Session',
         ],
     ],
     'uthando_services' => [
         'invokables' => [
-            'UthandoSessionManager'	=> 'UthandoSessionManager\Service\SessionManager',
+            'UthandoSessionManagerSession'	=> 'UthandoSessionManager\Service\SessionManager',
         ],
     ],
     'view_helpers' => [

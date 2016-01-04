@@ -8,9 +8,11 @@
  * @copyright Copyright (c) 2015 Shaun Freeman. (http://www.shaunfreeman.co.uk)
  * @license   see LICENSE
  */
+
 namespace UthandoSessionManager\Mapper;
 
 use UthandoCommon\Mapper\AbstractDbMapper;
+
 
 /**
  * Class Session

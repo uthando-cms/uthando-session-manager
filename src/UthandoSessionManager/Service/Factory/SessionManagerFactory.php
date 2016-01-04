@@ -29,6 +29,7 @@ class SessionManagerFactory implements FactoryInterface
         $sessionManager = null;
 
         if (isset($config['uthando_session_manager'])) {
+
             $session = $config['uthando_session_manager'];
 
             $sessionConfig = null;

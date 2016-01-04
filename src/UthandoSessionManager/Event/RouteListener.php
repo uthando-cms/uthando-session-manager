@@ -51,8 +51,8 @@ class RouteListener implements ListenerAggregateInterface
         $container = new Container();
 
         if (!isset($container->init)) {
-            $session->regenerateId(true);
-            $container->init = 1;
+            //$session->regenerateId(true);
+            //$container->init = 1;
         }
     }
 }

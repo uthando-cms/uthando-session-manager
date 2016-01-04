@@ -21,19 +21,20 @@ use Zend\View\Model\ViewModel;
  */
 class SessionManagerController extends AbstractCrudController
 {
-    protected $controllerSearchOverrides = array('sort' => 'id');
-    protected $serviceName = 'UthandoSessionManager';
+    protected $controllerSearchOverrides = ['sort' => 'id'];
+    protected $serviceName = 'UthandoSessionManagerSession';
     protected $route = 'admin/session';
 
     public function indexAction()
     {
         try {
-            parent::indexAction();
+            $viewModel = parent::indexAction();
         } catch (\Exception $e) {
             $model = new ViewModel();
             $model->setTemplate('uthando-session-manager/session-manager/not-implemented');
-            return $model;
         }
+
+        return $viewModel;
     }
 
     public function viewAction()
