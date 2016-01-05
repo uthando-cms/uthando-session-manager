@@ -1,11 +1,11 @@
 
-<div id="table-session" class="table-wrap">
-	<?=$this->partial('uthando-session-manager/session-manager/list', array(
-		'models' => $this->models
-    ));?>
+<div id="table-session">
+	<?=$this->partial('uthando-session-manager/session-manager/list', [
+		'models' => $this->models,
+    ]);?>
 </div>
 
-<?php $this->headScript()->captureStart(); ?>
+<?php $this->inlineScript()->captureStart(); ?>
 $(document).ready(function(){
 	$('#table-session').dataGrid({
     	url : 'session/list',
@@ -14,4 +14,4 @@ $(document).ready(function(){
     	columnSort: true
 	});
 });
-<?php $this->headScript()->captureEnd(); ?>
+<?php $this->inlineScript()->captureEnd(); ?>
