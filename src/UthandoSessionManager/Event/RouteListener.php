@@ -42,6 +42,7 @@ class RouteListener implements ListenerAggregateInterface
      */
     public function startSession(MvcEvent $mvcEvent)
     {
+        /* @var \Zend\Session\SessionManager $session */
         $session = $mvcEvent->getApplication()
             ->getServiceManager()
             ->get('UthandoSessionManager\SessionManager');
@@ -50,9 +51,12 @@ class RouteListener implements ListenerAggregateInterface
 
         $container = new Container();
 
+        // check if container is initiated, if not regenerate it and delete
+        // old session if it exists.
         if (!isset($container->init)) {
-            //$session->regenerateId(true);
-            //$container->init = 1;
+            $deleteOldSession = ($session->getId()) ? true : false;
+            $session->regenerateId($deleteOldSession);
+            $container->init = 1;
         }
     }
 }
