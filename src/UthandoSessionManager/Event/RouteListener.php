@@ -48,15 +48,5 @@ class RouteListener implements ListenerAggregateInterface
             ->get('UthandoSessionManager\SessionManager');
 
         $session->start();
-
-        $container = new Container();
-
-        // check if container is initiated, if not regenerate it and delete
-        // old session if it exists.
-        if (!isset($container->init)) {
-            $deleteOldSession = ($session->getId()) ? true : false;
-            $session->regenerateId($deleteOldSession);
-            $container->init = 1;
-        }
     }
 }
