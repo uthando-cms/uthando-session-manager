@@ -14,7 +14,6 @@ use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
 use Zend\Mvc\MvcEvent;
-use Zend\Session\Container;
 
 /**
  * Class RouteListener
