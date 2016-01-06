@@ -30,6 +30,7 @@ class DbTableGateway extends ZendDbTableGateway
     public function gc($maxlifetime)
     {
         $platform = $this->tableGateway->getAdapter()->getPlatform();
+
         return (bool) $this->tableGateway->delete(
             sprintf(
                 '%s < %d',
