@@ -5,6 +5,9 @@ return [
         'admin' => [
             'session' => [
                 'label' => 'Session Manager',
+                'params' => [
+                    'icon' => 'fa-cog',
+                ],
                 'route' => 'admin/session',
                 'resource' => 'menu:admin',
             ],
