@@ -1,4 +1,3 @@
-<?php $this->headTitle('Sessions') ?>
 
 <?php if (count($this->models) > 0):?>
 
@@ -6,12 +5,12 @@
     <table id="session-list" class="table table-hover table-bordered table-condensed sortable-table">
         <thead>
             <tr>
-                <th data-field="id">Session Id</th>
-                <th data-field="name">Name</th>
-                <th data-field="modified">Modified</th>
-                <th data-field="lifetime">Life Time</th>
-                <th>Expires</th>
-                <th>Actions</th>
+                <th data-field="id"><?=$this->translate('Session Id');?></th>
+                <th data-field="name"><?=$this->translate('Name');?></th>
+                <th data-field="modified"><?=$this->translate('Modified');?></th>
+                <th data-field="lifetime"><?=$this->translate('Life Time');?></th>
+                <th><?=$this->translate('Expires');?></th>
+                <th><?=$this->translate('Actions');?></th>
             </tr>
         </thead>
 
@@ -26,9 +25,11 @@
                 <td><?=$this->escapeHtml($row->getLifetime());?></td>
                 <td><?=$this->escapeHtml($this->formatDate('@'.($row->getModified() + $row->getLifetime())));?></td>
                 <td>
-                    <a data-toggle="modal" class="btn btn-default" href="<?=$this->url('admin/session/view', [
+                    <a data-toggle="modal" class="btn btn-default btn-tooltip" href="<?=$this->url('admin/session/view', [
                         'id' => $row->getId()
-                    ]);?>" data-target="#viewSession<?=$row->getId();?>">View Data</a>
+                    ]);?>" data-target="#viewSession<?=$row->getId();?>" title="<?=$this->translate('View');?>">
+                        <i class="fa fa-eye"></i>
+                    </a>
                     <!-- Modal -->
                     <div id="viewSession<?=$row->getId(); ?>" class="modal fade" tabindex="-1">
                         <div class="modal-dialog modal-lg">
@@ -36,7 +37,7 @@
 
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                                    <h3 id="myModalLabel">Session Data</h3>
+                                    <h3 id="myModalLabel"><?=$this->translate('Session Data');?></h3>
                                 </div>
 
                                 <div class="modal-body">
@@ -44,37 +45,18 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-default" data-dismiss="modal"><?=$this->translate('Close');?></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    &nbsp;
-                    <!-- Button to trigger modal -->
-                    <a href="#sessionModel<?=$row->getId();?>" class="btn btn-danger" data-toggle="modal">Delete</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="sessionModel<?=$row->getId();?>" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h3 id="sessionModel<?=$row->getId();?>Label">Warning</h3>
-                                </div>
-                                <form class="form-horizontal"  method="post" action="<?=$this->url('admin/session/delete');?>">
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this session.</p>
-                                        <p class="label label-important">This action cannot be undone</p>
-                                    </div>
-                                    <input type="hidden" name="id" value="<?=$row->getId();?>">
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">No Don't Do It</button>
-                                        <button type="submit" name="submit" class="btn btn-danger" value="delete">Yes Delete It</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <?= $this->partial('uthando-admin/partial/edit-actions', [
+                        'pk' => 'id',
+                        'id' => $row->getId(),
+                        'tableName' => 'session',
+                        'route' => 'admin/session/delete',
+                        'edit' => false,
+                    ]); ?>
                 </td>
             </tr>
             <?php endforeach;?>
@@ -91,7 +73,7 @@
 );?>
 
 <?php else:?>
-<h4>No sessions where returned by search.</h4>
+<h4><?=$this->translate('No sessions where returned by search.');?></h4>
 <?php endif;?>
 
 
