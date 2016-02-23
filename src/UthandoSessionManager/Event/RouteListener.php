@@ -13,6 +13,7 @@ namespace UthandoSessionManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
+use Zend\Http\Request;
 use Zend\Mvc\MvcEvent;
 
 /**
@@ -41,6 +42,10 @@ class RouteListener implements ListenerAggregateInterface
      */
     public function startSession(MvcEvent $mvcEvent)
     {
+        if (!$mvcEvent->getRequest() instanceof Request) {
+            return;
+        }
+
         /* @var \Zend\Session\SessionManager $session */
         $session = $mvcEvent->getApplication()
             ->getServiceManager()
