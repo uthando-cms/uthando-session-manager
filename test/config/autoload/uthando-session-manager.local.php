@@ -18,9 +18,11 @@ return [
             'Zend\Session\Validator\HttpUserAgent',
         ],
     ],
-    'db' => [
-        'driver'             => 'PDO_SQLITE',
-        'database'           => './data/sessionTest.sqlite',
-        'sqlite_constraints' => true,
+    'uthando_common' => [
+        'db_options' => [
+            'driver'             => 'PDO_SQLITE',
+            'database'           => './data/sessionTest.sqlite',
+            //'sqlite_constraints' => true,
+        ],
     ],
 ];

@@ -22,7 +22,7 @@ class SessionMangerCustomConfigTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        session_destroy();
+        //session_destroy();
         // use ModuleManager to load this module and it's dependencies
         $config = include __DIR__ . '/../../../config/TestOverridesConfig.php';
 
@@ -35,6 +35,7 @@ class SessionMangerCustomConfigTest extends \PHPUnit_Framework_TestCase
 
     public function testCanSetSessionFromLocalOverRides()
     {
+        session_destroy();
         $sessionManager = $this->serviceManager
             ->get('UthandoSessionManager\SessionManager');
         $this->assertInstanceOf('Zend\Session\SessionManager', $sessionManager);

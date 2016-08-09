@@ -11,6 +11,7 @@
 
 namespace UthandoSessionManager\Service\Factory;
 
+use UthandoCommon\Options\DbOptions;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Session\SaveHandler\DbTableGatewayOptions;
@@ -28,9 +29,9 @@ class SessionSaveHandlerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $sm)
     {
         // grab the config array
-        $config = $sm->get('config');
+        $options = $sm->get(DbOptions::class);
 
-        $dbAdapter = new Adapter($config['db']);
+        $dbAdapter = new Adapter($options->toArray());
 
         // get the session options (column names)
         $sessionOptions = new DbTableGatewayOptions();

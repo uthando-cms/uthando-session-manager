@@ -39,14 +39,14 @@ class SessionManagerTest extends TestCase
 
         $mapperManagerMock->expects($this->once())
             ->method('get')
-            ->with('UthandoSessionManager')
+            ->with('UthandoSessionManagerSession')
             ->will($this->returnValue($mapperMock));
 
         $this->serviceManager->setAllowOverride(true);
         $this->serviceManager->setService('UthandoMapperManager', $mapperManagerMock);
 
         $service = $this->serviceManager->get('UthandoServiceManager')
-            ->get('UthandoSessionManager');
+            ->get('UthandoSessionManagerSession');
 
         $this->assertSame($model, $service->getById('2b73fftuqqa84lha6jt4pcl097'));
     }

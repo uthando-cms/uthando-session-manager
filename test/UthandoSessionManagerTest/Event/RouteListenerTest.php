@@ -12,6 +12,7 @@ namespace UthandoSessionManagerTest\Event;
 
 use UthandoSessionManager\Event\RouteListener;
 use UthandoSessionManagerTest\Framework\ApplicationTestCase;
+use Zend\Http\Request;
 use Zend\Mvc\MvcEvent;
 
 class RouteListenerTest extends ApplicationTestCase
@@ -29,7 +30,7 @@ class RouteListenerTest extends ApplicationTestCase
         $app = $this->getApplication();
         $eventManager = $app->getEventManager();
 
-        $eventManager->attachAggregate(new RouteListener());
+        $eventManager->attach(new RouteListener());
 
         $listenerSet = false;
 
@@ -42,7 +43,7 @@ class RouteListenerTest extends ApplicationTestCase
         $this->assertTrue($listenerSet);
     }
 
-    public function testCanStartSession()
+    public function testSessionNotStartedIfNotHttpRequest()
     {
         $event = new MvcEvent();
         $event->setApplication($this->getApplication());
@@ -50,14 +51,18 @@ class RouteListenerTest extends ApplicationTestCase
         $sessionListener = new RouteListener();
         $sessionListener->startSession($event);
 
-        $this->assertArrayHasKey('__ZF', $_SESSION);
+        $this->assertFalse(isset($_SESSION));
     }
 
-    public function testSessionStartsOnRoute()
+    public function testCanStartSession()
     {
-        session_destroy();
-        $this->dispatch('/');
+        $event = new MvcEvent();
+        $event->setApplication($this->getApplication());
+        $event->setRequest(new Request());
+
+        $sessionListener = new RouteListener();
+        $sessionListener->startSession($event);
+
         $this->assertArrayHasKey('__ZF', $_SESSION);
-        $this->assertMatchedRouteName('home');
     }
 }

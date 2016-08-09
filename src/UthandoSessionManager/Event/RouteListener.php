@@ -51,6 +51,8 @@ class RouteListener implements ListenerAggregateInterface
             ->getServiceManager()
             ->get('UthandoSessionManager\SessionManager');
 
-        $session->start();
+        if (!$session->sessionExists()) {
+            $session->start();
+        }
     }
 }
