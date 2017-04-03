@@ -13,7 +13,6 @@ return [
                                 '__NAMESPACE__' => 'UthandoSessionManager\Controller',
                                 'controller'    => 'SessionManager',
                                 'action'        => 'index',
-                                'force-ssl'     => 'ssl'
                             ],
                         ],
                         'may_terminate' => true,
@@ -24,7 +23,6 @@ return [
                                     'route' => '/delete',
                                     'defaults' => [
                                         'action'     => 'delete',
-                                        'force-ssl'  => 'ssl'
                                     ],
                                 ],
                             ],
@@ -37,7 +35,6 @@ return [
                                     ],
                                     'defaults'      => [
                                         'action'     => 'view',
-                                        'force-ssl'  => 'ssl'
                                     ],
                                 ],
                             ],
@@ -47,7 +44,6 @@ return [
                                     'route'         => '/list',
                                     'defaults'      => [
                                         'action'     => 'list',
-                                        'force-ssl'  => 'ssl'
                                     ],
                                 ],
                             ],
@@ -61,7 +57,6 @@ return [
                                     'defaults'      => [
                                         'action'     => 'list',
                                         'page'       => 1,
-                                        'force-ssl'  => 'ssl'
                                     ],
                                 ],
                             ],
