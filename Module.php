@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Uthando CMS (http://www.shaunfreeman.co.uk/)
  *
@@ -28,28 +28,22 @@ class Module implements ConfigInterface
     /**
      * @param MvcEvent $event
      */
-    public function onBootstrap(MvcEvent $event)
+    public function onBootstrap(MvcEvent $event): void
     {
-        $app = $event->getApplication();
-        $eventManager = $app->getEventManager();
-
-        $eventManager->attachAggregate(new RouteListener());
+        $app            = $event->getApplication();
+        $eventManager   = $app->getEventManager();
+        $session        = new RouteListener();
+        $session->attach($eventManager);
     }
 
-    /**
-     * @return array
-     */
-    public function getConfig()
+    public function getConfig(): array
     {
         defined('APPLICATION_PATH') or define('APPLICATION_PATH', realpath(dirname('./')));
 
         return include __DIR__ . '/config/module.config.php';
     }
 
-    /**
-     * @return array
-     */
-    public function getAutoloaderConfig()
+    public function getAutoloaderConfig(): array
     {
         return [
             'Zend\Loader\ClassMapAutoloader' => [
