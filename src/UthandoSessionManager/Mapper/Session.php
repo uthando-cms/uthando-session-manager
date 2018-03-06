@@ -12,6 +12,7 @@
 namespace UthandoSessionManager\Mapper;
 
 use UthandoCommon\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Where;
 
 
 /**
@@ -23,4 +24,12 @@ class Session extends AbstractDbMapper
 {
     protected $table = 'session';
     protected $primary = 'id';
+
+    public function gc($lifetime = 1440)
+    {
+        $where = new Where();
+        $where->lessThan('modified', time() - $lifetime);
+
+        return $this->delete($where);
+    }
 }

@@ -14,6 +14,7 @@ namespace UthandoSessionManager;
 use UthandoCommon\Config\ConfigInterface;
 use UthandoCommon\Config\ConfigTrait;
 use UthandoSessionManager\Event\RouteListener;
+use Zend\Console\Adapter\AdapterInterface as Console;
 use Zend\Mvc\MvcEvent;
 
 /**
@@ -41,6 +42,17 @@ class Module implements ConfigInterface
         defined('APPLICATION_PATH') or define('APPLICATION_PATH', realpath(dirname('./')));
 
         return include __DIR__ . '/config/module.config.php';
+    }
+
+    /**
+     * @param Console $console
+     * @return array
+     */
+    public function getConsoleUsage(Console $console)
+    {
+        return [
+            'session gc' => 'initiate garbage collection on sessions in database.',
+        ];
     }
 
     public function getAutoloaderConfig(): array

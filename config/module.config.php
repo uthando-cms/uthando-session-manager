@@ -3,7 +3,8 @@
 return [
     'controllers' => [
         'invokables' => [
-            'UthandoSessionManager\Controller\SessionManager' => 'UthandoSessionManager\Controller\SessionManagerController',
+            'UthandoSessionManager\Controller\SessionManagerConsole'    => 'UthandoSessionManager\Controller\SessionManagerConsole',
+            'UthandoSessionManager\Controller\SessionManager'           => 'UthandoSessionManager\Controller\SessionManagerController',
         ],
     ],
     'controller_plugins' => [

@@ -66,4 +66,20 @@ return [
             ],
         ],
     ],
+    'console' => [
+        'router' => [
+            'routes' => [
+                'session/gc' => [
+                    'options' => [
+                        'route' => 'session gc',
+                        'defaults' => [
+                            '__NAMESPACE__' => 'UthandoSessionManager\Controller',
+                            'controller' => 'SessionManagerConsole',
+                            'action' => 'gc'
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];

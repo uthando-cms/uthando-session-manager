@@ -32,4 +32,9 @@ class SessionManager extends AbstractMapperService
         $id = (string) $id;
         return $this->getMapper()->getById($id);
     }
+
+    public function gc()
+    {
+        return $this->getMapper()->gc();
+    }
 }
