@@ -28,7 +28,8 @@ class Session extends AbstractDbMapper
     public function gc($lifetime = 1440)
     {
         $where = new Where();
-        $where->lessThan('modified', time() - $lifetime);
+        //$where->lessThan('modified', time() - $lifetime);
+        $where->lessThan('expires', time());
 
         return $this->delete($where);
     }
