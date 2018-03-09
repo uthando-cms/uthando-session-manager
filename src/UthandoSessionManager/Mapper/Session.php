@@ -12,6 +12,7 @@
 namespace UthandoSessionManager\Mapper;
 
 use UthandoCommon\Mapper\AbstractDbMapper;
+use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Where;
 
 
@@ -25,11 +26,15 @@ class Session extends AbstractDbMapper
     protected $table = 'session';
     protected $primary = 'id';
 
-    public function gc($lifetime = 1440)
+    public function gc()
     {
+        $adapterPlatform = $this->getAdapter()->getPlatform();
+        $expression = new Expression(
+            time() . ' - ' . $adapterPlatform->quoteIdentifier('lifetime')
+        );
         $where = new Where();
-        //$where->lessThan('modified', time() - $lifetime);
-        $where->lessThan('expires', time());
+        $where->lessThan('modified', $expression);
+
 
         return $this->delete($where);
     }
