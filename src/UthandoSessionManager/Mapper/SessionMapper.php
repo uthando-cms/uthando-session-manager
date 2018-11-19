@@ -21,7 +21,7 @@ use Zend\Db\Sql\Where;
  *
  * @package UthandoSessionManager\Mapper
  */
-class Session extends AbstractDbMapper
+class SessionMapper extends AbstractDbMapper
 {
     protected $table = 'session';
     protected $primary = 'id';

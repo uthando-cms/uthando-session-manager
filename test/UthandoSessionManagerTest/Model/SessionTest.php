@@ -10,7 +10,7 @@
 
 namespace UthandoSessionManagerTest\Model;
 
-use UthandoSessionManager\Model\Session as SessionModel;
+use UthandoSessionManager\Model\SessionModel as SessionModel;
 
 class SessionTest extends \PHPUnit_Framework_TestCase
 {

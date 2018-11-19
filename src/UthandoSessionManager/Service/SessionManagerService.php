@@ -12,15 +12,20 @@
 namespace UthandoSessionManager\Service;
 
 use UthandoCommon\Service\AbstractMapperService;
+use UthandoSessionManager\Hydrator\SessionHydrator;
+use UthandoSessionManager\Mapper\SessionMapper;
+use UthandoSessionManager\Model\SessionModel;
 
 /**
  * Class SessionManager
  *
  * @package UthandoSessionManager\Service
  */
-class SessionManager extends AbstractMapperService
+class SessionManagerService extends AbstractMapperService
 {
-    protected $serviceAlias = 'UthandoSessionManagerSession';
+    protected $hydrator     = SessionHydrator::class;
+    protected $mapper       = SessionMapper::class;
+    protected $model        = SessionModel::class;
 
     /**
      * @var bool

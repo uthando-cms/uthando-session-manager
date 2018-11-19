@@ -10,8 +10,8 @@
 
 namespace UthandoSessionManagerTest\Hydrator;
 
-use UthandoSessionManager\Hydrator\Session as SessionHydrator;
-use UthandoSessionManager\Model\Session as SessionModel;
+use UthandoSessionManager\Hydrator\SessionHydrator as SessionHydrator;
+use UthandoSessionManager\Model\SessionModel as SessionModel;
 
 class SessionTest extends \PHPUnit_Framework_TestCase
 {

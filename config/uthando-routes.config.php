@@ -1,5 +1,8 @@
 <?php
 
+use UthandoSessionManager\Controller\SessionManagerConsole;
+use UthandoSessionManager\Controller\SessionManagerController;
+
 return [
     'router' => [
         'routes' => [
@@ -11,7 +14,7 @@ return [
                             'route'    => '/session',
                             'defaults' => [
                                 '__NAMESPACE__' => 'UthandoSessionManager\Controller',
-                                'controller'    => 'SessionManager',
+                                'controller'    => SessionManagerController::class,
                                 'action'        => 'index',
                             ],
                         ],
@@ -74,7 +77,7 @@ return [
                         'route' => 'session gc',
                         'defaults' => [
                             '__NAMESPACE__' => 'UthandoSessionManager\Controller',
-                            'controller' => 'SessionManagerConsole',
+                            'controller' => SessionManagerConsole::class,
                             'action' => 'gc'
                         ],
                     ],

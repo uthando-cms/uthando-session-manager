@@ -42,7 +42,7 @@ class DbTableGateway extends ZendDbTableGateway
 
         $ids = [];
 
-        /* @var \UthandoSessionManager\Model\Session $row */
+        /* @var \UthandoSessionManager\Model\SessionModel $row */
         foreach ($rows as $row) {
             $ids[] = $row->{$this->options->getIdColumn()};
         }

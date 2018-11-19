@@ -19,7 +19,7 @@ use UthandoCommon\Model\Model;
  *
  * @package UthandoSessionManager\Model
  */
-class Session implements ModelInterface
+class SessionModel implements ModelInterface
 {
     use Model;
 

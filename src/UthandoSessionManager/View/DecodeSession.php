@@ -31,7 +31,7 @@ class DecodeSession extends AbstractHelper
         return $html;
     }
 
-    private function unserialize($sessionData, $startIndex = 0, &$dict = null)
+    protected function unserialize($sessionData, $startIndex = 0, &$dict = null)
     {
         isset($dict) or $dict = array();
 

@@ -18,10 +18,10 @@ use UthandoCommon\Hydrator\AbstractHydrator;
  *
  * @package UthandoSessionManager\Hydrator
  */
-class Session extends AbstractHydrator
+class SessionHydrator extends AbstractHydrator
 {
     /**
-     * @param \UthandoSessionManager\Model\Session $object
+     * @param \UthandoSessionManager\Model\SessionModel $object
      * @return array
      */
     public function extract($object)

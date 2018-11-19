@@ -14,7 +14,6 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Session\Container;
 use Zend\Session\SessionManager;
-//use Zend\Session\Container;
 
 /**
  * Class SessionManagerFactory

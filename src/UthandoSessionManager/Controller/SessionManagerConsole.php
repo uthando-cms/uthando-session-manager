@@ -11,6 +11,8 @@
 namespace UthandoSessionManager\Controller;
 
 
+use UthandoCommon\Service\ServiceManager;
+use UthandoSessionManager\Service\SessionManagerService;
 use Zend\Console\Request;
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -24,9 +26,9 @@ class SessionManagerConsole extends AbstractActionController
             throw new \RuntimeException('You can only use this action from a console!');
         }
 
-        $sl = $this->getServiceLocator()->get('UthandoServiceManager');
+        $sl = $this->getServiceLocator()->get(ServiceManager::class);
 
-        $sessionManagerService = $sl->get('UthandoSessionManagerSession');
+        $sessionManagerService = $sl->get(SessionManagerService::class);
 
         $result = $sessionManagerService->gc();
 

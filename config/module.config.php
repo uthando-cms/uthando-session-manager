@@ -1,46 +1,45 @@
 <?php
 
+use UthandoSessionManager\Controller\Plugin\SessionContainer;
+use UthandoSessionManager\Controller\SessionManagerConsole;
+use UthandoSessionManager\Controller\SessionManagerController;
+use UthandoSessionManager\Service\Factory\SessionManagerFactory;
+use UthandoSessionManager\Service\Factory\SessionSaveHandlerFactory;
+use UthandoSessionManager\Service\SessionManagerService;
+use UthandoSessionManager\View\DecodeSession;
+
 return [
     'controllers' => [
         'invokables' => [
-            'UthandoSessionManager\Controller\SessionManagerConsole'    => 'UthandoSessionManager\Controller\SessionManagerConsole',
-            'UthandoSessionManager\Controller\SessionManager'           => 'UthandoSessionManager\Controller\SessionManagerController',
+            SessionManagerConsole::class => SessionManagerConsole::class,
+            SessionManagerController::class => SessionManagerController::class,
         ],
     ],
     'controller_plugins' => [
-        'invokables' => [
-            'SessionContainer' => 'UthandoSessionManager\Controller\Plugin\SessionContainer',
+        'aliases' => [
+            'sessionContainer' => SessionContainer::class
         ],
-    ],
-    'hydrators' => [
         'invokables' => [
-            'UthandoSessionManagerSession' => 'UthandoSessionManager\Hydrator\Session',
+            SessionContainer::class => SessionContainer::class,
         ],
     ],
     'service_manager' => [
         'factories' => [
-            'UthandoSessionManager\SessionManager'		=> 'UthandoSessionManager\Service\Factory\SessionManagerFactory',
-            'UthandoSessionManager\SessionSaveHandler'	=> 'UthandoSessionManager\Service\Factory\SessionSaveHandlerFactory',
-        ],
-    ],
-    'uthando_mappers' => [
-        'invokables' => [
-            'UthandoSessionManagerSession' => 'UthandoSessionManager\Mapper\Session',
-        ],
-    ],
-    'uthando_models' => [
-        'invokables' => [
-            'UthandoSessionManagerSession' => 'UthandoSessionManager\Model\Session',
+            SessionManagerFactory::class => SessionManagerFactory::class,
+            SessionSaveHandlerFactory::class => SessionSaveHandlerFactory::class,
         ],
     ],
     'uthando_services' => [
         'invokables' => [
-            'UthandoSessionManagerSession'	=> 'UthandoSessionManager\Service\SessionManager',
+            SessionManagerService::class => SessionManagerService::class
         ],
     ],
     'view_helpers' => [
+        'aliases' => [
+            'DecodeSession' => DecodeSession::class,
+        ],
         'invokables' => [
-            'DecodeSession' => 'UthandoSessionManager\View\DecodeSession',
+            DecodeSession::class => DecodeSession::class
         ],
     ],
     'view_manager' => [

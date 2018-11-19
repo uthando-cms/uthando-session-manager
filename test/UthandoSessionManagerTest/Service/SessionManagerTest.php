@@ -10,7 +10,7 @@
 
 namespace UthandoSessionManagerTest\Service;
 
-use UthandoSessionManager\Model\Session;
+use UthandoSessionManager\Model\SessionModel;
 use UthandoSessionManagerTest\Framework\TestCase;
 
 class SessionManagerTest extends TestCase
@@ -18,14 +18,14 @@ class SessionManagerTest extends TestCase
     public function testGetById()
     {
 
-        $model = new Session();
+        $model = new SessionModel();
         $model->setId('2b73fftuqqa84lha6jt4pcl097')
             ->setName('uthando-cms')
             ->setModified('1398807915')
             ->setLifetime(1440)
             ->setData('');
 
-        $mapperMock = $this->getMockBuilder('UthandoSessionManager\Mapper\Session')
+        $mapperMock = $this->getMockBuilder('UthandoSessionManager\Mapper\SessionMapper')
             ->disableOriginalConstructor()
             ->getMock();
         $mapperManagerMock = $this->getMockBuilder('UthandoCommon\Mapper\MapperManager')

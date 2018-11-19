@@ -12,6 +12,7 @@
 namespace UthandoSessionManager\Controller;
 
 use UthandoCommon\Controller\AbstractCrudController;
+use UthandoSessionManager\Service\SessionManagerService;
 use Zend\View\Model\ViewModel;
 
 /**
@@ -22,7 +23,7 @@ use Zend\View\Model\ViewModel;
 class SessionManagerController extends AbstractCrudController
 {
     protected $controllerSearchOverrides = ['sort' => 'id'];
-    protected $serviceName = 'UthandoSessionManagerSession';
+    protected $serviceName = SessionManagerService::class;
     protected $route = 'admin/session';
 
     public function indexAction()

@@ -1,5 +1,7 @@
 <?php
 
+use UthandoSessionManager\Controller\SessionManagerController;
+
 return [
     'uthando_user' => [
         'acl' => [
@@ -8,14 +10,14 @@ return [
                     'privileges' => [
                         'allow' => [
                             'controllers' => [
-                                'UthandoSessionManager\Controller\SessionManager' => ['action' => 'all'],
+                                SessionManagerController::class => ['action' => 'all'],
                             ],
                         ],
                     ],
                 ],
             ],
             'resources' => [
-                'UthandoSessionManager\Controller\SessionManager',
+                SessionManagerController::class,
             ],
         ],
     ],
