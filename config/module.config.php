@@ -3,7 +3,11 @@
 use UthandoSessionManager\Controller\Plugin\SessionContainer;
 use UthandoSessionManager\Controller\SessionManagerConsole;
 use UthandoSessionManager\Controller\SessionManagerController;
+use UthandoSessionManager\Controller\SettingsController;
+use UthandoSessionManager\Options\SessionOptions;
+use UthandoSessionManager\Service\Factory\SessionConfigOptionsFactory;
 use UthandoSessionManager\Service\Factory\SessionManagerFactory;
+use UthandoSessionManager\Service\Factory\SessionOptionsFactory;
 use UthandoSessionManager\Service\Factory\SessionSaveHandlerFactory;
 use UthandoSessionManager\Service\SessionManagerService;
 use UthandoSessionManager\View\DecodeSession;
@@ -11,8 +15,9 @@ use UthandoSessionManager\View\DecodeSession;
 return [
     'controllers' => [
         'invokables' => [
-            SessionManagerConsole::class => SessionManagerConsole::class,
+            SessionManagerConsole::class    => SessionManagerConsole::class,
             SessionManagerController::class => SessionManagerController::class,
+            SettingsController::class       => SettingsController::class
         ],
     ],
     'controller_plugins' => [
@@ -25,8 +30,10 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            SessionManagerFactory::class => SessionManagerFactory::class,
-            SessionSaveHandlerFactory::class => SessionSaveHandlerFactory::class,
+            SessionConfigOptionsFactory::class  => SessionConfigOptionsFactory::class,
+            SessionManagerFactory::class        => SessionManagerFactory::class,
+            SessionOptions::class               => SessionOptionsFactory::class,
+            SessionSaveHandlerFactory::class    => SessionSaveHandlerFactory::class,
         ],
     ],
     'uthando_services' => [

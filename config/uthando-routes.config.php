@@ -2,6 +2,7 @@
 
 use UthandoSessionManager\Controller\SessionManagerConsole;
 use UthandoSessionManager\Controller\SessionManagerController;
+use UthandoSessionManager\Controller\SettingsController;
 
 return [
     'router' => [
@@ -62,6 +63,18 @@ return [
                                         'page'       => 1,
                                     ],
                                 ],
+                            ],
+                            'settings' => [
+                                'type'    => 'Literal',
+                                'options' => [
+                                    'route'    => '/settings',
+                                    'defaults' => [
+                                        '__NAMESPACE__' => 'UthandoSessionManager\Controller',
+                                        'controller'    => SettingsController::class,
+                                        'action'        => 'index',
+                                    ],
+                                ],
+                                'may_terminate' => true,
                             ],
                         ],
                     ],

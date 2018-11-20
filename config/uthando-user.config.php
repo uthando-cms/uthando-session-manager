@@ -1,6 +1,7 @@
 <?php
 
 use UthandoSessionManager\Controller\SessionManagerController;
+use UthandoSessionManager\Controller\SettingsController;
 
 return [
     'uthando_user' => [
@@ -11,6 +12,7 @@ return [
                         'allow' => [
                             'controllers' => [
                                 SessionManagerController::class => ['action' => 'all'],
+                                SettingsController::class       => ['action' => 'all'],
                             ],
                         ],
                     ],
@@ -18,6 +20,7 @@ return [
             ],
             'resources' => [
                 SessionManagerController::class,
+                SettingsController::class,
             ],
         ],
     ],
